@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SmartSale.Models.Bill>
+
+@{
+    Layout = null;
+}
+
+<h2>Products Categories Settings</h2>
+<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+    <thead>
+        <tr>
+            <th scope="col" class="rounded">ID</th>
+            <th scope="col" class="rounded">Thời gian gửi</th>
+            <th scope="col" class="rounded">Email khách hàng</th>
+            <th scope="col" class="rounded">Số điện thoại</th>
+            <th scope="col" class="rounded">Địa chỉ</th>
+            <th scope="col" class="rounded">Note</th>
+            <th scope="col" class="rounded">Xem</th>
+            <th scope="col" class="rounded-q4">Delete</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="7" class="rounded-foot-left"></td>
+            <td class="rounded-foot-right">&nbsp;</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var i in Model)
+        {
+                string s = "Đã giao";
+                if (i.IsDeleted == 0)
+                {
+                    s = "Chưa giao";
+                }
+                <tr>
+                    <td scope="col" class="rounded">@i.ID</td>
+                    <td scope="col" class="rounded">@i.DateTime</td>
+                    <td scope="col" class="rounded">@i.Email</td>
+                    <td scope="col" class="rounded">@i.PhoneNumber</td>
+                    <td scope="col" class="rounded">@i.Address</td>
+                    <td><a style="" onclick="getdatabyget('table', '../Bill/CheckBill?id=@i.ID')">@s</a></td>
+                    <td><a style="" onclick="getdatabyget('forms','../Bill/ViewBill?id=@i.ID')"><img src="~/Areas/Admin2/Asset/css/images/user_edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a style="" class="ask" onclick="getdatabyget('table','../Bill/DeleteBill?id=@i.ID')"> <img src="~/Areas/Admin2/Asset/css/images/trash.png" alt="" title="" border="0" /></a></td>
+                    <!--class="ask"  trash-->
+                </tr>
+                }
+    </tbody>
+</table>
+<!--<a href="#" class="bt_blue"><span class="bt_blue_lft"></span><strong>View all items from category</strong><span class="bt_blue_r"></span></a>-->
+<!--<a href="" class="bt_red" ><span class="bt_red_lft"></span><strong>Delete items</strong><span class="bt_red_r"></span></a>-->
+<!--<div class="pagination">
+    <span class="disabled"><< prev</span><span class="current">1</span><a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a>…<a href="">10</a><a href="">11</a><a href="">12</a>...<a href="">100</a><a href="">101</a><a href="">next >></a>
+</div>-->

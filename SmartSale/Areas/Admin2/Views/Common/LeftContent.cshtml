@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+<div class="left_content">
+    <div class="sidebar_search">
+        <form>
+            @*<input type="text" name="" class="search_input" value="search keyword" onclick="this.value=''" />
+              <input type="image" class="search_submit" src="~/Areas/Admin2/Asset/css/images/search.png" />*@
+        </form>
+    </div>
+    <div class="sidebarmenu">
+        <script type="text/javascript">
+            function EventHandler(a,b) {
+                getdatabyget(a, b);
+                cancelForm();
+            }
+            function seach() {
+                
+                getdatabyget('table', '../Product/SeachProduct?key='+document.getElementById('seachc').value);
+            }
+        </script>
+        <a class="menuitem submenuheader" href="">Manage</a>
+        <div class="submenu">
+            <ul>
+                <li onclick="EventHandler('table','../Category/CategoryTable')"><a style="" onclick="EventHandler('table', '../Category/CategoryTable')">Danh mục</a></li>
+                <li onclick="EventHandler('table', '../Brand/TableBrand')"><a style="" onclick="EventHandler('table', '../Brand/TableBrand')">Nhãn hiệu</a></li>
+                <li onclick="EventHandler('table', '../Product/ProductTable')"><a style="" onclick="EventHandler('table', '../Product/ProductTable')">Sản phẩm</a></li>
+            </ul>
+        </div>
+        <a class="menuitem" style="" onclick="EventHandler('table', '../Bill/BillTable')">Đơn hàng</a>
+        <a class="menuitem_green" style=""><input type="text" id="seachc" onchange="seach()"/></a>
+     @*   <a class="menuitem_red" href="">Red button</a>*@
+    </div>
+    <div class="sidebar_box">
+        <div class="sidebar_box_top"></div>
+        <div class="sidebar_box_content">
+            <h3>User help desk</h3>
+            <img src="~/Areas/Admin2/Asset/css/images/info.png" alt="" title="" class="sidebar_icon_right" />
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <div class="sidebar_box_bottom"></div>
+    </div>
+</div>

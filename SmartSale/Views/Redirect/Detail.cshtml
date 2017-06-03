@@ -1,0 +1,139 @@
+﻿@model SmartSale.Models.Product
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_LayoutMenuLeft.cshtml";
+}
+
+<div class="details">
+    <div class="product-details">
+        <div class="images_3_of_2">
+            <div id="container">
+                <div id="products_example">
+                    <div id="products">
+                        <div class="slides_container">
+                            @foreach (var i in Model._GetIm)
+                            {
+                            <a href="#" target="_blank"><img src="~/Asset/images/@i.url" alt=" " /></a>
+                            
+                            } 
+                        </div>
+                        <ul class="pagination">
+                           
+                            @foreach (var i in Model._GetIm)
+                            {
+                                <li><a href="#"><img src="~/Asset/images/@i.url" alt=" " /></a></li>
+                            }
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="desc span_3_of_2">
+            <h2>@Model.ProductName</h2>
+            <p>@Model.Description</p>
+            <div class="price">
+                <p>Price: <span>$@Model.NewPrice</span></p>
+            </div>
+            <div class="available">
+                <p>Available Options :</p>
+                <ul>
+                    <li>
+                        Color:
+                        <input type="color" value="@Model.Color"/>
+                    </li>
+                    <li>
+                        Size:<select>
+                            <option>@Model.Size</option>
+                        </select>
+                    </li>
+                    <li>
+                        Quality:<select>
+                            <option>ssđss</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="share-desc">
+                <div class="share">
+                    <p>Share Product :</p>
+                    <ul>
+                        <li><a href="#"><img src="~/Asset/images/fb.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/Asset/images/twiter.png" alt=""></a></li>
+                        <li><a href="#"><img src="~/Asset/images/rss.png" alt=""></a></li>
+                    </ul>
+                </div>
+                <div class="button"><span><a href="../Cart/AddItem?id=@Model.ID">Add to Cart</a></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="wish-list">
+                <ul>
+                    <li class="wish"><a href="#"></a></li>
+                    <li class="compare"><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="product_desc">
+        <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+            <ul class="resp-tabs-list">
+                <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab">Product Details</li>
+                <li class="resp-tab-item" aria-controls="tab_item-1" role="tab">product Tags</li>
+                <li class="resp-tab-item" aria-controls="tab_item-2" role="tab">Product Reviews</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="resp-tabs-container">
+                <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>Product Details</h2><div class="product-desc resp-tab-content resp-tab-content-active" style="display:block" aria-labelledby="tab_item-0">
+                  <p>@Model.ReviewProduct </p>
+                </div>
+                <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>product Tags</h2>
+                <div class="product-tags resp-tab-content" aria-labelledby="tab_item-1">
+                    <p>Lorem Ipsum is unchanged.</p>
+                    <h4>Add Your Tags:</h4>
+                    <div class="input-box">
+                        <input type="text" value="">
+                    </div>
+                    <div class="button"><span><a href="#">Add Tags</a></span></div>
+                </div>
+                <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>Product Reviews</h2>
+                <div class="review resp-tab-content" aria-labelledby="tab_item-2">
+                    <h4>Lorem ipsum Review by <a href="#">Finibus Bonorum</a></h4>
+                    <ul>
+                        <li>Price :<a href="#"><img src="~/Asset/images/price-rating.png" alt=""></a></li>
+                        <li>Value :<a href="#"><img src="~/Asset/images/value-rating.png" alt=""></a></li>
+                        <li>Quality :<a href="#"><img src="~/Asset/images/quality-rating.png" alt=""></a></li>
+                    </ul>
+                    <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                    <div class="your-review">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true   // 100% fit in a container
+        });
+    });
+    </script>
+    <div class="content_bottom">
+        <div class="text-h1 top1 btm">
+            <h2>Lorem ipsum quis nostrud exercitation</h2>
+        </div>
+        <div class="div2">
+            <div id="mcts1">
+                <img src="~/Asset/images/pic2.png" alt="" />
+                <img src="~/Asset/images/pic3.png" alt="" />
+                <img src="~/Asset/images/pic1.png" alt="" />
+                <img src="~/Asset/images/pic2.png" alt="" />
+                <img src="~/Asset/images/pic3.png" alt="" />
+                <img src="~/Asset/images/pic1.png" alt="" />
+            </div>
+        </div>
+    </div>
+</div>

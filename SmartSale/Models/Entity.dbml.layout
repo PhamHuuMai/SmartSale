@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.875" name="Entity">
+  <DataContextMoniker Name="/EntityDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ccb23f60-79e2-411d-af89-1654882a027f" absoluteBounds="6.75, 6.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EntityDataContext/Administraor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de5bca8f-b534-48e0-b2d3-348569c704f7" absoluteBounds="6.765, 6.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="45315e27-5eab-41b0-b7d1-49b9475dfa4f" absoluteBounds="6.25, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/EntityDataContext/BillDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="750f60c4-07a4-411f-aa7c-2c53c1136e04" absoluteBounds="6.265, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0fe1766-3e60-4387-b0a9-2d4faf49d0f8" absoluteBounds="3.5, 7.5, 2, 2.1554996744791675">
+      <DataClassMoniker Name="/EntityDataContext/Bill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fe075da5-d22c-4612-a53c-33ba60e171e5" absoluteBounds="3.515, 7.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="093a16ce-5d8a-41a4-8306-0130ad007e1a" absoluteBounds="0.75, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EntityDataContext/Brand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d7e5d84b-1a05-4138-891b-27e20df758ba" absoluteBounds="0.765, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3069584f-24d6-4cbb-8666-d27bdbc58740" absoluteBounds="0.75, 0.875, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/EntityDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="323e128f-dfee-4245-bb30-b2b871869b62" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3eaa4e02-13ea-443c-965c-6b115e8052d7" absoluteBounds="3.5, 3, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/EntityDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="495b3ad5-767a-4da8-9589-de622ee37504" absoluteBounds="3.515, 3.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="68ca7d20-1522-4d1d-b069-12adbe8cf239" absoluteBounds="6.25, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/EntityDataContext/Image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27479a19-3389-4052-b1cd-a04adbd7a40a" absoluteBounds="6.265, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.5); (5.875 : 7.125); (5.875 : 1.63544840494792); (6.25 : 1.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EntityDataContext/Bill/Bill_BillDetail" />
+      <nodes>
+        <classShapeMoniker Id="e0fe1766-3e60-4387-b0a9-2d4faf49d0f8" />
+        <classShapeMoniker Id="45315e27-5eab-41b0-b7d1-49b9475dfa4f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.45242346379207 : 2.45359537760417); (1.45242346379207 : 2.70359537760417); (2.06174684745593 : 2.70359537760417); (2.06174684745593 : 2.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EntityDataContext/Category/Category_Category" />
+      <nodes>
+        <classShapeMoniker Id="3069584f-24d6-4cbb-8666-d27bdbc58740" />
+        <classShapeMoniker Id="3069584f-24d6-4cbb-8666-d27bdbc58740" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 3); (4.5 : 2.10942510742187); (6.25 : 2.10942510742187)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EntityDataContext/Product/Product_BillDetail" />
+      <nodes>
+        <classShapeMoniker Id="3eaa4e02-13ea-443c-965c-6b115e8052d7" />
+        <classShapeMoniker Id="45315e27-5eab-41b0-b7d1-49b9475dfa4f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.66429768880208); (3.5 : 4.66429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EntityDataContext/Brand/Brand_Product" />
+      <nodes>
+        <classShapeMoniker Id="093a16ce-5d8a-41a4-8306-0130ad007e1a" />
+        <classShapeMoniker Id="3eaa4e02-13ea-443c-965c-6b115e8052d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.49221255371094); (3.9687475 : 1.49221255371094); (3.9687475 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EntityDataContext/Category/Category_Product" />
+      <nodes>
+        <classShapeMoniker Id="3069584f-24d6-4cbb-8666-d27bdbc58740" />
+        <classShapeMoniker Id="3eaa4e02-13ea-443c-965c-6b115e8052d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.66429768880208); (6.25 : 4.66429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/EntityDataContext/Product/Product_Image" />
+      <nodes>
+        <classShapeMoniker Id="3eaa4e02-13ea-443c-965c-6b115e8052d7" />
+        <classShapeMoniker Id="68ca7d20-1522-4d1d-b069-12adbe8cf239" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,54 @@
+﻿@model SmartSale.Models.TransportModels.TransportSidebar
+@using SmartSale.Models.BaseModels;
+@using SmartSale.Models;
+@using System.Collections
+@{
+    Hashtable hh = Model.CategoryList;
+    var dd = Model.BrandList;
+    var key = hh.Keys.GetEnumerator();
+}
+<div class="sidebar">
+    <div class="s-main">
+        <div class="s_hdr">
+            <h2>Danh mục</h2>
+        </div>
+        <div class="text1-nav">
+            <ul>
+                @while (key.MoveNext())
+                {
+                    if (hh[key.Current].GetType().Name.Equals("Category"))
+                    {
+                        <li><a href="../Redirect/Category?cat=@(((Category)hh[key.Current]).ID)">@(((Category)hh[key.Current]).CategoryName) </a></li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="../Redirect/Category?cat=@(((Category)key.Current).ID)">@(((Category)key.Current).CategoryName)</a>
+                            <div class="text1-nav">
+                                <ul>
+                                    @foreach (var c in (List<Category>)hh[key.Current])
+                                    {
+                                        <li><a href="../Redirect/Category?cat=@c.ID">@c.CategoryName</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="s-main">
+        <div class="s_hdr1">
+            <h2>Thương hiệu</h2>
+        </div>
+        <div class="text1-nav">
+            <ul>
+                @foreach (var item in dd)
+                {
+                    <li><a href="../Redirect/Brand?brand=@item.ID">@item.BrandName </a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

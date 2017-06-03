@@ -1,0 +1,68 @@
+﻿@model SmartSale.Areas.Admin2.Models.Ticket
+@{
+    Layout = null;
+    double total = 0;
+}
+<h2>Form brand</h2>
+<div class="form" >
+    <form action="../Brand/HandleFormBrand" method="post" class="niceform">
+        <fieldset>
+            <dl>
+                <dt><label for="email">ID :  </label></dt>
+                <dd><input type="text" name="id" id="" size="54" value="@Model.Bill.ID" placeholder="ID" required readonly /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Address :</label></dt>
+                <dd><input type="text" name="name" id="" size="54" value="@Model.Bill.Address" placeholder="Đùa bố à" required readonly /></dd>
+
+            </dl>
+            <dl>
+                <dt><label for="password">Số điện thoại :</label></dt>
+                <dd><input type="text" name="fromto" id="" size="54" value="@Model.Bill.PhoneNumber" placeholder="Đùa bố à" required readonly/></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Email :</label></dt>
+                <dd><input type="text" name="fromto" id="" size="54" value="@Model.Bill.Email" placeholder="Đùa bố à" required readonly/></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Thời gian đặt :</label></dt>
+                <dd><input type="text" name="fromto" id="" size="54" value="@Model.Bill.DateTime" placeholder="Đùa bố à" required readonly/></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Tình trạng :</label></dt>
+                <dd><input type="text" name="fromto" id="" size="54" value="@(Model.Bill.IsDeleted == 0 ? "Chưa giao" : "Đã giao")" placeholder="Đùa bố à" required readonly/></dd>
+            </dl>
+        </fieldset>
+    </form>
+    <table style="margin-left: 100px; border:ridge; width:500px;">
+        <thead>
+            <tr>
+                <th>ID SP </th>
+                <th>Tên SP </th>
+                <th>Đơn giá </th>
+                <th>Số Lượng </th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model.Items) {
+            <tr>
+                @{ 
+                    total=total+ i.Amount * i.Price;
+                }
+                <th>@i.IdProduct </th>
+                <th>@i.NameProduct </th>
+                <th>@i.Price </th>
+                <th>@i.Amount </th>
+                <th>@(i.Amount*i.Price) $</th>
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Tổng tiền : </td>
+                <td>@total $</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

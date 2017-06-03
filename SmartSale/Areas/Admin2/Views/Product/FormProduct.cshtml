@@ -1,0 +1,107 @@
+﻿@model SmartSale.Areas.Admin2.Models.ModelFormProduct
+@{
+    Layout = null;
+}
+
+<h2>Nice Form example</h2>
+<div class="form">
+    <form method="post" class="niceform" id="form1">
+        <fieldset>
+            <dl>
+                <dt><label for="email">ID : @Model.Product.ID</label></dt>
+                <dd><input type="hidden" name="id" value="@Model.Product.ID" id="id" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Tên sản phẩm :</label></dt>
+                <dd><input type="text" name="name" value="@Model.Product.ProductName" id="name" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Model :</label></dt>
+                <dd><input type="text" name="model" value="@Model.Product.Model" id="model" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Màu sắc :</label></dt>
+                <dd><input type="color" uiactions="rotation" name="color" value="@Model.Product.Color" id="color" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Size :</label></dt>
+                <dd><input type="number" name="size" value="@Model.Product.Size" id="size" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Giá : </label></dt>
+                <dd><input type="number" name="price" value="@Model.Product.NewPrice" id="price" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Tag :</label></dt>
+                <dd><input type="text" name="tag" value="@Model.Product.Tag" id="tag" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="gender">Select categories:</label></dt>
+                <dd>
+                    <select size="1" name="category" id="category">
+                        @foreach (var i in Model.Category)
+                        {
+                            if (i.ID == Model.Product.IDCategory)
+                            {
+                        <option value="@i.ID" selected>@i.CategoryName</option>
+                            }
+                            else
+                            {
+                        <option value="@i.ID">@i.CategoryName</option>
+                            }
+
+                        }
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="gender">Select brand:</label></dt>
+                <dd>
+                    <select size="1" name="brand" id="brand">
+                        @foreach (var b in Model.Brand)
+                        {
+                            if (b.ID == Model.Product.IDBrand)
+                            {
+                        <option value="@b.ID" selected>@b.BrandName</option>
+                            }
+                            else
+                            {
+                        <option value="@b.ID">@b.BrandName</option>
+                            }
+                        }
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="upload">Images:</label></dt>
+                <dd>
+                    @foreach (var i in Model.Product._GetIm)
+                    {  
+                            <div id="container_img_@i.name" style="float:left;">
+                                <img src="~/Asset/images/@i.url" width="50" height="50" id="img_@i.name" />
+                                <img src="~/Areas/Admin2/Asset/js/uploadify-cancel.png" onclick="remove_img('container_img_@i.name','@i.name')">
+                            </div>       
+                    }
+                </dd>
+            </dl>
+            <dl>
+                <dt></dt>
+                <dd>
+                    <div id="uploadimg" style="float:none"><input type="button" value="upload" id="uploadButton" onclick="fff()" /></div>
+                </dd>
+            </dl>
+            <dl>
+                <dt><label for="comments">Description:</label></dt>
+                <dd><textarea form="form1" name="description" id="description" rows="5" cols="36">@Model.Product.Description</textarea></dd>
+            </dl>
+            <dl>
+                <dt><label for="comments">Review:</label></dt>
+                <dd><textarea form="form1" name="review" id="review" rows="5" cols="36">@Model.Product.ReviewProduct</textarea></dd>
+            </dl>
+            <dl class="submit">
+                <input type="button" name="submit" id="submit" value="Submit" onclick="up()" />
+                <input type="button" name="submit" id="submit" onclick="cancelForm()" value="Cancel" />
+            </dl>
+        </fieldset>
+    </form>
+</div>

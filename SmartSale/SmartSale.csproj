@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9257D1BB-662E-445C-92BA-0DF4B6521D6A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartSale</RootNamespace>
+    <AssemblyName>SmartSale</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin2\Asset\css\images\arrow.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bg.jpg" />
+    <Content Include="Areas\Admin2\Asset\css\images\botleft.jpg" />
+    <Content Include="Areas\Admin2\Asset\css\images\botright.jpg" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_blue_center.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_blue_left.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_blue_r.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_green_center.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_green_left.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_green_r.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_red_center.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_red_left.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bt_red_r.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\bubble.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\button.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\buttonn.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\buttony.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\comment.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\error.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\footer_bg.jpg" />
+    <Content Include="Areas\Admin2\Asset\css\images\green_bt.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\green_bt_a.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\help.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\indeziner_logo.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\info.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\left.jpg" />
+    <Content Include="Areas\Admin2\Asset\css\images\list_bullet.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\login_bg.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\logo.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\menu_bg.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\menu_bg.jpg" />
+    <Content Include="Areas\Admin2\Asset\css\images\menu_bg_a.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\minus.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\notice.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\photo.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\plus.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\red_bt.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\red_bt_a.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\right.jpg" />
+    <Content Include="Areas\Admin2\Asset\css\images\search.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\sidebar_box_bottom.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\sidebar_box_top.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\sidebar_menu_top.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\sidebar_menu_top_a.gif" />
+    <Content Include="Areas\Admin2\Asset\css\images\trash.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\user_edit.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\user_logout.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\valid.png" />
+    <Content Include="Areas\Admin2\Asset\css\images\warning.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\0.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\button-left.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\button-left.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\button-right.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\button-right.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\button.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\button.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\checkbox.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\checkbox.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\file.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\file.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\input-left.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\input-left.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\input-right.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\input-right.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\input.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\input.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\radio.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\radio.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\select-left.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\select-left.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\select-right.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\select-right.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-bl.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-bl.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-br.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-br.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-l-off.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-l-off.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-l-over.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-r-off.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-r-off.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-r-over.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-tl.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-tl.png" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-tr.gif" />
+    <Content Include="Areas\Admin2\Asset\css\img\textarea-tr.png" />
+    <Content Include="Areas\Admin2\Asset\css\niceforms-default.css" />
+    <Content Include="Areas\Admin2\Asset\css\style.css" />
+    <Content Include="Areas\Admin2\Asset\img\Boobs-Loading.gif" />
+    <Content Include="Areas\Admin2\Asset\img\uploadify-cancel.png" />
+    <Content Include="Areas\Admin2\Asset\js\AJAX.js" />
+    <Content Include="Areas\Admin2\Asset\js\clockh.js" />
+    <Content Include="Areas\Admin2\Asset\js\clockp.js" />
+    <Content Include="Areas\Admin2\Asset\js\ddaccordion.js" />
+    <Content Include="Areas\Admin2\Asset\js\img\0.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\button-left.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\button-left.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\button-right.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\button-right.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\button.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\button.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\checkbox.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\checkbox.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\file.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\file.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\input-left.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\input-left.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\input-right.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\input-right.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\input.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\input.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\radio.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\radio.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\select-left.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\select-left.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\select-right.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\select-right.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-bl.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-bl.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-br.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-br.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-l-off.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-l-off.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-l-over.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-r-off.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-r-off.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-r-over.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-tl.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-tl.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-tr.gif" />
+    <Content Include="Areas\Admin2\Asset\js\img\textarea-tr.png" />
+    <Content Include="Areas\Admin2\Asset\js\img\uploadify-cancel.png" />
+    <Content Include="Areas\Admin2\Asset\js\jconfirmaction.jquery.js" />
+    <Content Include="Areas\Admin2\Asset\js\jquery-1.4.2.min.js" />
+    <Content Include="Areas\Admin2\Asset\js\jquery.jclock-1.2.0.js.txt" />
+    <Content Include="Areas\Admin2\Asset\js\jquery.min.js" />
+    <Content Include="Areas\Admin2\Asset\js\jquery.uploadify.js" />
+    <Content Include="Areas\Admin2\Asset\js\jquery.uploadify.min.js" />
+    <Content Include="Areas\Admin2\Asset\js\license.txt" />
+    <Content Include="Areas\Admin2\Asset\js\niceforms.js" />
+    <Content Include="Areas\Admin2\Asset\js\uploadify-cancel.png" />
+    <Content Include="Areas\Admin2\Asset\css\uploadify.css" />
+    <Content Include="Areas\Admin2\Asset\js\uploadify.swf" />
+    <Content Include="Areas\Admin2\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin2\Views\Common\Header.cshtml" />
+    <Content Include="Areas\Admin2\Views\Common\Menu.cshtml" />
+    <Content Include="Areas\Admin2\Views\Common\Footer.cshtml" />
+    <Content Include="Areas\Admin2\Views\Common\LeftContent.cshtml" />
+    <Content Include="Areas\Admin2\Views\Common\RightContent.cshtml" />
+    <Content Include="Areas\Admin2\Views\Category\FormCategory.cshtml" />
+    <Content Include="Areas\Admin2\Views\Product\FormProduct.cshtml" />
+    <Content Include="Areas\Admin2\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Admin2\Views\Bill\BillTable.cshtml" />
+    <Content Include="Areas\Admin2\Views\Bill\ViewBill.cshtml" />
+    <Content Include="Areas\Admin2\Views\Product\SeachProduct.cshtml" />
+    <None Include="Areas\Admin2\Views\Shared\index-digital.cshtml" />
+    <None Include="Areas\Admin2\Views\Shared\index.cshtml" />
+    <None Include="Areas\Admin2\Views\Shared\login.cshtml" />
+    <Content Include="Areas\Admin2\Views\Brand\Brand.cshtml" />
+    <Content Include="Areas\Admin2\Views\Product\Product.cshtml" />
+    <Content Include="Areas\Admin2\Views\Category\Category.cshtml" />
+    <Content Include="Areas\Admin2\Views\Brand\TableBrand.cshtml" />
+    <Content Include="Areas\Admin2\Views\Category\CategoryTable.cshtml" />
+    <Content Include="Areas\Admin2\Views\Product\ProductTable.cshtml" />
+    <Content Include="Areas\Admin2\Views\Brand\FormBrand.cshtml" />
+    <Content Include="Areas\Admin2\Views\web.config" />
+    <Content Include="Asset\css\easy-responsive-tabs.css" />
+    <Content Include="Asset\css\global.css" />
+    <Content Include="Asset\css\PagePartionStyle.css" />
+    <Content Include="Asset\css\style.css" />
+    <Content Include="Asset\css\table.css" />
+    <Content Include="Asset\images\arrow-next.png" />
+    <Content Include="Asset\images\arrow-prev.png" />
+    <Content Include="Asset\images\arrow.png" />
+    <Content Include="Asset\images\arrow1.png" />
+    <Content Include="Asset\images\btn.png" />
+    <Content Include="Asset\images\Copy of productslide-1.jpg" />
+    <Content Include="Asset\images\Copy of productslide-2.jpg" />
+    <Content Include="Asset\images\fb.png" />
+    <Content Include="Asset\images\logo.png" />
+    <Content Include="Asset\images\marker2.png" />
+    <Content Include="Asset\images\pic1.jpg" />
+    <Content Include="Asset\images\pic1.png" />
+    <Content Include="Asset\images\pic2.png" />
+    <Content Include="Asset\images\pic3.png" />
+    <Content Include="Asset\images\pic4.png" />
+    <Content Include="Asset\images\pic5.png" />
+    <Content Include="Asset\images\pic6.png" />
+    <Content Include="Asset\images\pic7.png" />
+    <Content Include="Asset\images\pic8.png" />
+    <Content Include="Asset\images\pic9.png" />
+    <Content Include="Asset\images\price-rating.png" />
+    <Content Include="Asset\images\productslide-1.jpg" />
+    <Content Include="Asset\images\productslide-2.jpg" />
+    <Content Include="Asset\images\productslide-3.jpg" />
+    <Content Include="Asset\images\quality-rating.png" />
+    <Content Include="Asset\images\rss.png" />
+    <Content Include="Asset\images\ser-pic1.jpg" />
+    <Content Include="Asset\images\ser-pic2.jpg" />
+    <Content Include="Asset\images\ser-pic3.jpg" />
+    <Content Include="Asset\images\ser-pic4.jpg" />
+    <Content Include="Asset\images\ser-pic5.jpg" />
+    <Content Include="Asset\images\thumbnailslide-1.jpg" />
+    <Content Include="Asset\images\thumbnailslide-2.jpg" />
+    <Content Include="Asset\images\thumbnailslide-3.jpg" />
+    <Content Include="Asset\images\tick1.png" />
+    <Content Include="Asset\images\twiter.png" />
+    <Content Include="Asset\images\value-rating.png" />
+    <Content Include="Asset\js\easing.js" />
+    <Content Include="Asset\js\easyResponsiveTabs.js" />
+    <Content Include="Asset\js\jquery-1.7.2.min.js" />
+    <Content Include="Asset\js\jquery-slider.js" />
+    <Content Include="Asset\js\jquery.min.js" />
+    <Content Include="Asset\js\move-top.js" />
+    <Content Include="Asset\js\Pay.js" />
+    <Content Include="Asset\js\script.js" />
+    <Content Include="Asset\js\slides.min.jquery.js" />
+    <Content Include="Global.asax" />
+    <Content Include="img\uploadify-cancel.png" />
+    <Content Include="Models\Entity.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Entity.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Shared\html\404.html" />
+    <Content Include="Views\Shared\html\about.html" />
+    <Content Include="Views\Shared\html\contact.html" />
+    <Content Include="Views\Shared\html\details.html" />
+    <Content Include="Views\Shared\footer.cshtml" />
+    <Content Include="Views\Shared\header.cshtml" />
+    <Content Include="Views\Shared\header_bottom.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\Produc.cshtml" />
+    <Content Include="Views\Redirect\Detail.cshtml" />
+    <Content Include="Views\Cart\ViewCart.cshtml" />
+    <Content Include="Views\Common\Cart.cshtml" />
+    <Content Include="Views\Cart\FormBill.cshtml" />
+    <None Include="Views\Shared\_LayoutIndex.cshtml" />
+    <Content Include="Views\Shared\html\login.html" />
+    <Content Include="Views\Shared\html\register.html" />
+    <Content Include="Views\Shared\html\store.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin2\Admin2AreaRegistration.cs" />
+    <Compile Include="Areas\Admin2\Controllers\BillController.cs" />
+    <Compile Include="Areas\Admin2\Controllers\CommonController.cs" />
+    <Compile Include="Areas\Admin2\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin2\Models\Item.cs" />
+    <Compile Include="Areas\Admin2\Models\Ticket.cs" />
+    <Compile Include="Areas\Admin2\Models\ImageModel.cs" />
+    <Compile Include="Areas\Admin2\Models\LoginModel.cs" />
+    <Compile Include="Areas\Admin2\Models\ModelFormCategory.cs" />
+    <Compile Include="Areas\Admin2\Controllers\BrandController.cs" />
+    <Compile Include="Areas\Admin2\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin2\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin2\Models\ModelFormProduct.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RedirectController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaseModels\BillModel.cs" />
+    <Compile Include="Models\BaseModels\BrandModel.cs" />
+    <Compile Include="Models\BaseModels\CategoryModel.cs" />
+    <Compile Include="Models\BaseModels\ProductModel.cs" />
+    <Compile Include="Models\Entity.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransportModels\TransportIndex.cs" />
+    <Compile Include="Models\TransportModels\TransportSidebar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Until\ItemCart.cs" />
+    <Compile Include="Until\ShoppingCart.cs" />
+    <Compile Include="Until\ShoppingCart1.cs" />
+    <Compile Include="Until\Static.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\images\logo1.psd" />
+    <Content Include="Asset\fonts\Amble-Light-webfont.ttf" />
+    <Content Include="Views\Shared\sidebar.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenuLeft.cshtml" />
+    <Content Include="Views\Shared\_LayoutNoMenu.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Entity.dbml.layout">
+      <DependentUpon>Entity.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52381</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52381/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

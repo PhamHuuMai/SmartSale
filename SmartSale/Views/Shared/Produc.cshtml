@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SmartSale.Models.Product>
+@{
+    // IEnumerator<SmartSale.Models.Product> f = Model.GetEnumerator();
+    string s="";
+}
+@foreach (var item in Model)
+{
+    if (item._GetIm.FirstOrDefault<SmartSale.Models.Image>() != null)
+    {
+        s = item._GetIm.FirstOrDefault<SmartSale.Models.Image>().url;
+    }
+<div class="grid_1_of_3 images_1_of_3">
+    <a href="../Redirect/Product?id=@item.ID"><img src="~/Asset/images/@s " alt="" /></a>
+    <a href="../Redirect/Product?id=@item.ID"><h3>@item.ProductName</h3></a>
+    <div class="cart-b">
+        <span class="price left"><sup>$@item.NewPrice</sup><sub></sub></span>
+        <div class="btn top-right right"><a href="../Cart/AddItem?id=@item.ID">Add to Cart</a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+}

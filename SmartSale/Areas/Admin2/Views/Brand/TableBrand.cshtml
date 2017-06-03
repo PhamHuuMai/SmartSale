@@ -1,0 +1,44 @@
+﻿@using SmartSale.Models;
+@model IEnumerable<Brand> 
+@{
+    Layout = null;
+}
+
+<h2>Products Categories Settings</h2>
+<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+    <thead>
+        <tr>
+            <th scope="col" class="rounded-company"></th>
+            <th scope="col" class="rounded">ID</th>
+            <th scope="col" class="rounded">Tên nhãn hiệu</th>
+            <th scope="col" class="rounded">Đến từ</th>
+            <th scope="col" class="rounded">Edit</th>
+            <th scope="col" class="rounded-q4">Delete</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="5" class="rounded-foot-left"></td>
+            <td class="rounded-foot-right">&nbsp;</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach(var i in Model){
+        <tr>
+            <td><input type="checkbox" name="@i.ID" /></td>
+            <td scope="col" class="rounded">@i.ID</td>
+            <td scope="col" class="rounded">@i.BrandName</td>
+            <td scope="col" class="rounded">@i.FromTo</td>
+            <td><a style="" onclick="getdatabyget('forms','../Brand/FormBrand?id=@i.ID')"><img src="~/Areas/Admin2/Asset/css/images/user_edit.png" alt="" title="" border="0" /></a></td>
+            <td><a style="" class="ask" onclick="getdatabyget('table','../Brand/DeleteBrand?id=@i.ID')" > <img src="~/Areas/Admin2/Asset/css/images/trash.png" alt="" title="" border="0" /></a></td>
+            <!--class="ask"  trash--> 
+        </tr>
+        }
+    </tbody>
+</table>
+<a style="" onclick="getdatabyget('forms', '../Brand/FormBrand')" class="bt_green"><span class="bt_green_lft"></span><strong>Add new brand</strong><span class="bt_green_r"></span></a>
+<!--<a href="#" class="bt_blue"><span class="bt_blue_lft"></span><strong>View all items from category</strong><span class="bt_blue_r"></span></a>-->
+<!--<a href="" class="bt_red" ><span class="bt_red_lft"></span><strong>Delete items</strong><span class="bt_red_r"></span></a>-->
+<!--<div class="pagination">
+    <span class="disabled"><< prev</span><span class="current">1</span><a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a>…<a href="">10</a><a href="">11</a><a href="">12</a>...<a href="">100</a><a href="">101</a><a href="">next >></a>
+</div>-->

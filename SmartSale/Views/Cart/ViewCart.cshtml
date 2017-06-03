@@ -1,0 +1,82 @@
+﻿@using System.Collections;
+@using SmartSale.Models.BaseModels;
+@using SmartSale.Models;
+@using SmartSale.Until;
+
+
+@{
+    ViewBag.Title = "ViewCart";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<div class="content">
+    @{
+        Hashtable cart;
+        if (Session["ShoppingCart"] == null)
+        {
+            Session.Add("ShoppingCart", new ShoppingCart());
+        }
+        ShoppingCart sc = (ShoppingCart)Session["ShoppingCart"];
+        cart = sc.Cart();
+        int i = 1;
+        Product pro;
+        ProductModel pm = new ProductModel();
+        double total = 0;
+        }
+    <form method="post" action="../Cart/HandleCart">
+        <table>
+            <thead>
+                <tr class="td_a">
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th>Tên mặt hàng</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @try
+                {
+                    IEnumerator ie = cart.Keys.GetEnumerator();
+                    while (ie.MoveNext())
+                    {
+                        pro = pm.SelectProduct((int)ie.Current);
+                        <tr class="td_a">
+                            <td>@i</td>
+                            <td>@ie.Current</td>
+                            <td>@pro.ProductName</td>
+                            <td><input type="number" name="@ie.Current" value="@((int)cart[ie.Current])" style="width:45px;" /></td>
+                            <td>@pro.NewPrice$</td>
+                            <td>@(pro.NewPrice*(int)cart[ie.Current])$</td>
+                            <td><a href="../Cart/RemoveItem?id=@ie.Current">Xóa</a></td>
+                        </tr>
+                        i++;
+                        total = total + pro.NewPrice * (int)cart[ie.Current];
+                    }
+                }
+                catch
+                {
+
+                }
+            </tbody>
+            <tfoot>
+                <tr class="td_a">
+                    <td></td>
+                    <td></td>
+                    <td><a href="../Cart/ClearCart">Xóa đơn hàng</a> </td>
+                    <td colspan="2"><input type="submit" name="Submit" value="Cập nhật đơn hàng"/></td>
+                    <td>Tổng :@total $</td>
+                    <td><a href="#" onclick="pay()">Thanh toán</a></td>     
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+</div>
+
+<div id="CusInfo">
+
+
+</div>
+

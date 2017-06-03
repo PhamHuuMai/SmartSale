@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SmartSale.Models.Product>
+
+@{
+    Layout = null;
+}
+<h2>Products Categories Settings</h2>
+<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
+    <thead>
+        <tr>
+            <th scope="col" class="rounded">ID</th>
+            <th scope="col" class="rounded">Tên sp</th>
+            <th scope="col" class="rounded">Model</th>
+            <th scope="col" class="rounded">Color</th>
+            <th scope="col" class="rounded">Price</th>
+            <th scope="col" class="rounded">Tag</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="9" class="rounded-foot-left"></td>
+            <td class="rounded-foot-right">&nbsp;</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td scope="col" class="rounded">@i.ID</td>
+                <td scope="col" class="rounded">@i.ProductName</td>
+                <td scope="col" class="rounded">@i.Model</td>
+                <td scope="col" class="rounded"><input type="color" value="@i.Color" /></td>
+                <td scope="col" class="rounded">@i.NewPrice</td>
+                <td scope="col" class="rounded">@i.Tag</td>
+            </tr>
+        }
+    </tbody>
+</table>

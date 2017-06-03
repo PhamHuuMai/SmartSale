@@ -1,0 +1,49 @@
+﻿@model SmartSale.Areas.Admin2.Models.ModelFormCategory
+@{
+    Layout = null;
+}
+<h2>Nice Form example</h2>
+<div class="form">
+    <form action="../Category/HandleForm" method="post" class="niceform">
+        <fieldset>
+            <dl>
+                <dt><label for="email">ID : @Model.Cat.ID</label></dt>
+                <dd><input type="hidden" name="id" value="@Model.Cat.ID" size="54" /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Tên danh mục: </label></dt>
+                <dd><input type="text" name="name" id="" size="54" value="@Model.Cat.CategoryName"/></dd>
+            </dl>
+            <dl>
+                <dt><label for="gender">Danh mục cha :</label></dt>
+                <dd>
+                    <select size="1" name="parent" id="">
+                        @foreach (var i in Model.ListCat)
+                        {
+                            if (i.ID == Model.Cat.CategoryParent)
+                            {
+                                <option value="@i.ID" selected>@i.CategoryName</option>
+                            }
+                            else
+                            {
+                                <option value="@i.ID" >@i.CategoryName</option>
+                            }
+                        }
+                        @if (Model.Cat.Category1==null)
+                        {
+                        <option value="0" selected>NULL</option>
+                        }
+                        else
+                        {
+                        <option value="0" >NULL</option>
+                        }
+                    </select>
+                </dd>
+            </dl>
+            <dl class="submit">
+                <input type="submit" name="submit" id="submit" value="Submit" />
+                <input type="submit" name="submit" id="submit" onclick="cancelForm()" value="Cancel" />
+            </dl>
+        </fieldset>
+    </form>
+</div>

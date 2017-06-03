@@ -1,0 +1,60 @@
+﻿@model SmartSale.Models.TransportModels.TransportIndex
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<div class="content">
+    @foreach (var i in Model.Tag.Take<string>(5))
+    {
+        if (!i.Equals(""))
+        {
+            <div class="cnt-btn">
+                <a href="#">@i</a>
+            </div>
+        }
+    }
+    <div class="clear"></div>
+    <div class="cnt-main">
+        <div class="s_btn">
+            <ul>
+                <li><h2>Welcome!</h2></li>
+                <li><h3><a href="login.html">Sign In</a></h3></li>
+                <li><h2>Free Visit?</h2></li>
+                <li><h4><a href="register.html">Register</a></h4></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="grid">
+            <div class="grid-img">
+                <a href="../Redirect/Product?id=@Model.SpecialProduct.ID"><img src="~/Asset/images/@Model.SpecialProduct._GetIm.FirstOrDefault().url" alt="" /></a>
+            </div>
+            <div class="grid-para">
+                <h2>Special Offer</h2>
+                @*<! <h3>I need The Ipad.</h3>*@
+                <p>@Model.SpecialProduct.ReviewProduct</p>
+                <div class="btn top">
+                    <a href="../Redirect/Product?id=@Model.SpecialProduct.ID">Details&nbsp;<img src="~/Asset/images/marker2.png"></a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="cnt-main btm">
+        <div class="section group">
+            @if (Model.ListProduct != null)
+            {
+              @Html.Partial("Produc", Model.ListProduct)
+            }
+             else{
+             @Html.Action("Error","Home")
+            }
+        </div>
+
+    </div>
+    <div>
+        <div class="clear" style="width:50px; height:20px;"></div>
+        @Html.Action("PagePartion", "Common")
+
+    </div>
+</div>

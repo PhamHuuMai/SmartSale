@@ -1,0 +1,28 @@
+﻿@model SmartSale.Models.Brand
+@{
+    Layout = null;
+}
+<h2>Form brand</h2>
+<div class="form">
+    <form action="../Brand/HandleFormBrand"  method="post" class="niceform" >
+        <fieldset>
+            <dl>
+                <dt><label for="email">ID : @Model.ID </label></dt>
+                <dd><input type="hidden" name="id" id="" size="54" value="@Model.ID" placeholder="ID" required readonly /></dd>
+            </dl>
+            <dl>
+                <dt><label for="password">Tên nhãn hiệu :</label></dt>
+                <dd><input type="text" name="name" id="" size="54" value="@Model.BrandName" placeholder="Đùa bố à" required /></dd>
+               
+            </dl>
+            <dl>
+                <dt><label for="password">Đến từ :</label></dt>
+                <dd><input type="text" name="fromto" id="" size="54" value="@Model.FromTo" placeholder="Đùa bố à" required/></dd>
+            </dl>
+            <dl class="submit">
+                <input type="submit" name="submit" id="submit" value="Submit" />
+                <input type="submit" onclick="cancelForm()" id="submit" value="Cancel" />
+            </dl>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>IN ADMIN PANEL | Powered by INDEZINER</title>
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin2/Asset/css/style.css" />
+    <script type="text/javascript" src="~/Areas/Admin2/Asset/js/clockp.js"></script>
+    <script type="text/javascript" src="~/Areas/Admin2/Asset/js/clockh.js"></script>
+    <script type="text/javascript" src="~/Areas/Admin2/Asset/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Admin2/Asset/js/ddaccordion.js"></script>
+    <script src="~/Areas/Admin2/Asset/js/AJAX.js"></script>
+    <script type="text/javascript">
+        ddaccordion.init({
+            headerclass: "submenuheader", //Shared CSS class name of headers group
+            contentclass: "submenu", //Shared CSS class name of contents group
+            revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+            mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+            collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+            defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+            onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+            animatedefault: false, //Should contents open by default be animated into view?
+            persiststate: true, //persist state of opened contents within browser session?
+            toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+            togglehtml: ["suffix", "<img src='http://localhost:52381/Areas/Admin2/Asset/css/images/plus.gif' class='statusicon' />", "<img src='http://localhost:52381/Areas/Admin2/Asset/css/images/minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+            animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+            oninit: function (headers, expandedindices) { //custom code to run when headers have initalized
+                //do nothing
+            },
+            onopenclose: function (header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
+                //do nothing
+            }
+        })
+    </script>
+    <script type="text/javascript" src="~/Areas/Admin2/Asset/js/jconfirmaction.jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.ask').jConfirmAction();
+        });
+
+    </script>
+    <script language="javascript" type="text/javascript" src="~/Areas/Admin2/Asset/js/niceforms.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="~/Areas/Admin2/Asset/css/niceforms-default.css" />
+    <link href="~/Areas/Admin2/Asset/css/uploadify.css" rel="stylesheet" />
+    <script src="~/Areas/Admin2/Asset/js/jquery.uploadify.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        function getdatabygetPro(destElement, url) {
+          //  document.getElementById(destElement).innerHTML = '<img src="../Asset/img/Boobs-Loading.gif" />';
+            http.open("get", url, true);
+            http.onreadystatechange = function handle() {
+                if (http.readyState == 4 && http.status == 200) {
+                    kq = http.responseText;
+                    document.getElementById(destElement).innerHTML = kq;
+                }
+            }
+            http.send(null);
+        }
+        var i = '';
+        function fff() {
+            document.getElementById('uploadimg').innerHTML = '<input  name="fileupload" id="upload" type="file" multiple="true" />';
+            $(document).ready(function () {
+                $('#upload').uploadify({
+                    'uploader': '../Product/UploadImg?a=9',
+                    'fileTypeDesc': 'Image Files',
+                    'fileTypeExts': '*.jpg; *.png',
+                    'swf': '/Areas/Admin2/Asset/js/uploadify.swf',
+                    'cancelImg': '/Areas/Admin2/Asset/js/uploadify-cancel.png',
+                    'fileDataName': 'file',
+                    'onQueueComplete': sendformproduct,
+                    'onUploadError':sendformproduct,
+                    'auto': false
+                });
+            });
+        }
+        function up(){
+            $('#upload').uploadify('upload', '*');
+        }
+        function remove_img(id, imgname) {
+            document.getElementById(id).remove();
+            i = i + imgname + '-';
+            alert(i);
+        }
+        function sendformproduct() {
+           // $('#upload').uploadify('upload','*');
+            var id = document.getElementById('id').value;
+            var name = document.getElementById('name').value;
+            var model = document.getElementById('model').value;
+            var color = document.getElementById('color').value;
+            var size = document.getElementById('size').value;
+            var price = document.getElementById('price').value;
+            var tag = document.getElementById('tag').value;
+            var category = document.getElementById('category').value;
+            var brand = document.getElementById('brand').value;
+            var description = document.getElementById('description').value;
+            var review = document.getElementById('review').value;
+            var query = 'id=' + id + '&name=' + name + '&model=' + model + '&color=' + color + '&size=' + price + '&price=' + price + '&tag=' + tag + '&category=' + category + '&brand=' + brand + '&description=' + description + '&review=' + review +'&nonimg='+i;
+            http.open("post", "http://localhost:52381/Admin2/Product/HandleForm", false);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.send(query);
+            getdatabyget('table', '../Product/ProductTable');
+            cancelForm();
+            i = '';
+        }
+    </script>  
+<div id="main_container">
+    @Html.Action("Header","Common")
+    <div class="main_content">
+            @Html.Action("Menu","Common")
+            <div class="center_content">
+               @Html.Action("LeftContent","Common")
+                <div class="right_content">
+                    <div id="table">
+                        WELLCOME
+                        @RenderBody()
+                    </div>
+                    <div id="dialogbox">
+                    </div>
+                    <div id="forms">
+                    </div>
+                </div>
+              <!-- end of right content-->
+            </div>   <!--end of center content -->
+            <div class="clear"></div>
+    </div> <!--end of main content-->
+    @Html.Action("Footer","Common")
+</div>
+</body>
+</html>
